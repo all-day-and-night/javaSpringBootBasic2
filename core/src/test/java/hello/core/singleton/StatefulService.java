@@ -17,9 +17,11 @@ package hello.core.singleton;
 public class StatefulService {
     private int price; // 상태 유지하는 필드
 
-    public void order(String name, int price){
+    public int  order(String name, int price){
         System.out.println("name = " + name + ", price = " + price);
-        this.price = price;
+        //this.price = price;
+        //this.price가 공유되기 때문에 수정해야함
+        return price;
     }
 
     public int getPrice(){
