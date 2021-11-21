@@ -11,6 +11,7 @@ import hello.core.member.MemberService;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class SingletonTest {
     @Test
@@ -34,6 +35,28 @@ public class SingletonTest {
         //garbage collector가 있지만 효율성을 고려해야함함
         //memberService1 != memberService2
         Assertions.assertThat(memberService1).isNotSameAs(memberService2);
+    }
+    @Test
+    @DisplayName("스프링 컨테이너와 싱글톤")
+    void springContainer(){
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
+        //1. 조회: 호출할 때 마다 객체를 생성
+
+        MemberService memberService1 = ac.getBean("memberService", MemberService.class);
+
+        //2. 조회: 호출할 때 마다 객체를 생성
+        MemberService memberService2 = ac.getBean("memberService", MemberService.class);
+
+        //참조값이 다른 것을 확인
+        System.out.println("memberService1 = " + memberService1);
+        System.out.println("memberService2 = " + memberService2);
+
+        //객체 타입은 같지만 참조 객체는 다름
+        //-> 객체를 계속 생성하는 것은 비효율적임 // 메모리 낭비
+        //-> 해당 객체를 1개만 생성하여 공유
+        //garbage collector가 있지만 효율성을 고려해야함함
+        //memberService1 != memberService2
+        Assertions.assertThat(memberService1).isSameAs(memberService2);
     }
 }
 
