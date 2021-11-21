@@ -14,6 +14,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AppConfig {
     //의존관계 주입 -> 리팩토링
+    //spring container는 singletone pattern을 자동으로 적용해줌
     @Bean
     public MemberService memberService(){
         return new MemberServiceImpl(memberRepository());
