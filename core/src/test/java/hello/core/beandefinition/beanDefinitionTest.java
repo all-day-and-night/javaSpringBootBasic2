@@ -12,6 +12,8 @@ import java.lang.reflect.GenericArrayType;
 public class beanDefinitionTest {
     //appConfig
     //AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
+
+    //appconfig with xml
     GenericXmlApplicationContext ac = new GenericXmlApplicationContext("appConfig.xml");
 
     @Test
@@ -27,3 +29,6 @@ public class beanDefinitionTest {
         }
     }
 }
+
+//git merge test
+
