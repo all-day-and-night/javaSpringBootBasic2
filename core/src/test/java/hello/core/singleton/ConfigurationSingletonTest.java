@@ -41,4 +41,17 @@ public class ConfigurationSingletonTest {
 
     }
 
+    @Test
+    void configurationDeep(){
+        ApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
+        AppConfig bean = ac.getBean(AppConfig.class);
+
+        System.out.println("bean = " + bean.getClass());
+        // -> 내가 만든 코드가 아니라 스프링이 바이트 코드 조작 라이브러리를 사용해서
+        // appconfig 클래스를 상속받은 임의의 다른 클래스를 만들고 그 다른 클래스를 스프링 빈으로 등록
+
+        //if @Configuration을 사용하지 않고 @Bean 만 사용한다면 순수한 AppConfig로 스프링 빈에 등록된 것을 확인할 수 있다.
+        //또한 singleton을 보장하지 않기 때문에 각 객체는 모두 다른 인스턴스를 가지고 있다.
+    }
+
 }
