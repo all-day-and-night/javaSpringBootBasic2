@@ -16,14 +16,28 @@ public class OrderServiceImpl implements OrderService{
     //private final DiscountPolicy discountPolicy = new RateDiscountPolicy();
     //-> 인터페이스에만 의존
 
-    private final DiscountPolicy discountPolicy;
-    private final MemberRepository memberRepository;
+    private DiscountPolicy discountPolicy;
+    private MemberRepository memberRepository;
 
+    //수정자
+    @Autowired
+    public void setMemberRepository(MemberRepository memberRepository){
+        this.memberRepository = memberRepository;
+    }
+
+    @Autowired
+    public void setDiscountPolicy(DiscountPolicy discountPolicy){
+        this.discountPolicy = discountPolicy;
+    }
+
+    //if 생성자가 1개만 존재할 경우 @Autowired 생략가능
+    //생성자 주입 : 불변, 필수 의존 관계에 사용, 외부에서 함부로 값을 수정할 수 없게 설정
     @Autowired
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
+
 
 
     @Override
