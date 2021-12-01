@@ -25,6 +25,7 @@ public class OrderServiceTest {
     }
     */
 
+    /*
     // 수정후 ->
     MemberService memberService;
     OrderService orderService;
@@ -37,4 +38,7 @@ public class OrderServiceTest {
 
 
     }
+    */
+
+
 }

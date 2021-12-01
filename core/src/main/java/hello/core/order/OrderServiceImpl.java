@@ -6,10 +6,13 @@ import hello.core.discount.RateDiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
 import hello.core.member.MemoryMemberRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService{
     //private final MemberRepository memberRepository = new MemoryMemberRepository();
     //private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
@@ -37,12 +40,10 @@ public class OrderServiceImpl implements OrderService{
     //생성자 주입 : 불변, 필수 의존 관계에 사용, 외부에서 함부로 값을 수정할 수 없게 설정
     //private final 선언으로 불변성 유지
     @Autowired
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+    public OrderServiceImpl(MemberRepository memberRepository, @Qualifier("mainDiscountPolicy") DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
-
-
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
