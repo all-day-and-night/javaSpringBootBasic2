@@ -16,8 +16,8 @@ public class OrderServiceImpl implements OrderService{
     //private final DiscountPolicy discountPolicy = new RateDiscountPolicy();
     //-> 인터페이스에만 의존
 
-    private DiscountPolicy discountPolicy;
-    private MemberRepository memberRepository;
+    private final DiscountPolicy discountPolicy;
+    private final MemberRepository memberRepository;
 
     //수정자
     //필드의 값을 변경하는 수정자 메서드를 통해서 의존관계 주입
