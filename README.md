@@ -98,18 +98,21 @@
 - SRP: 단일 책임 원칙(SINGLE RESPONSIBILITY PRINCIPLE)
 
 <br>
+
 - OCP: 개방 폐쇄 원칙(OPEN/CLOSED PRINCIPLE)
 
 <br>
+
 - LSP: 리스코프 치환 원칙(LISKOV SUBSTITUTION PRINCIPLE)
 
 <br>
+
 - ISP: 인터페이스 분리 원칙(INTERFACE SEGREGATION PRINCIPLE)
 
 <br>
+
 - DIP: 의존관계 역전 원칙(DEPENDENCY INVERSION PRINCIPLE)
 
-<br>
 
 
 
