@@ -1,3 +1,4 @@
+/*
 package hello.core.web;
 
 import hello.core.common.MyLogger;
@@ -28,3 +29,4 @@ public class LogDemoController {
 
     }
 }
+*/
