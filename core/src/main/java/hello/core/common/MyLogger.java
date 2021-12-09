@@ -9,9 +9,11 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import java.util.UUID;
 
+
 @Component
 @Scope(value="request", proxyMode = ScopedProxyMode.TARGET_CLASS)
 //가짜 프록시 객체를 만들어 주입한다.
+//프록시 객체를 사용함으로써 request scope를 싱글톤처럼 사용이 가능하다
 public class MyLogger {
     private String uuid;
     private String requestURL;
