@@ -27,6 +27,7 @@ public class MyLogger {
         uuid = UUID.randomUUID().toString();
         System.out.println("[" + uuid +"]" + " request scope bean create: " + this);
     }
+
     @PreDestroy
     public void close(){
         System.out.println("[" + uuid +"]" + " request scope bean create: " + this);
